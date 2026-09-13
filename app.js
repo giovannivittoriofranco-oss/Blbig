@@ -1,0 +1,5 @@
+function openModal(){document.getElementById("modal").classList.add("show")}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function preview(input,id){const box=document.getElementById(id);const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>box.innerHTML=`<img src="${e.target.result}" alt="prévia">`;r.readAsDataURL(file)}
+function createWork(){const title=document.getElementById("title").value.trim();const desc=document.getElementById("desc").value.trim();if(!title||!desc){alert("Preencha o título e a descrição.");return}document.getElementById("empty").innerHTML=`<div class="work-created"><h2>${title}</h2><p>${desc}</p><button class="primary">Abrir obra</button></div>`;closeModal()}
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()})
